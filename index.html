@@ -10,13 +10,15 @@
     <script src="constants.js"></script>  
     <script src="boxSpin.js"></script>  
     <script src="lookingAtBox.js"></script>
+    <script src="notLookingAtBox.js"></script>
+    <script src="clickOnBox.js"></script>
   </head>
   <body>
     
     <!-- Main scene definition -->
     <a-scene id="scene">
       <a-entity environment="preset:starry"></a-entity>
-      <a-entity box-spin looking-at-box id="box" 
+      <a-entity box-spin not-looking-at-box looking-at-box click-on-box id="box" 
                 geometry="primitive:box"
                 position="0 3 -5"
                 material="color:blue; src:https://cdn.glitch.global/ada329b6-9865-48b5-b069-a032cffa0b45/thumbnails%2FbrickPattern.jpg?1733504499938">
@@ -26,12 +28,18 @@
                 id="camera"
                 position="0 1.5 0"
                 rotation="0 0 0">
-        
+        <a-entity cursor
+                  position="0 0 -4"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                  material="color: red; shader: flat">
+        </a-entity>
         <a-entity raycaster 
                   objects: .clickable>
         </a-entity>
         
       </a-entity>
+
+      
 
     </a-scene>
     
