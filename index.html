@@ -7,11 +7,15 @@
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component/dist/aframe-aabb-collider-component.min.js"></script>
+  <script src="collide.js"></script>
+
     <script src="constants.js"></script>  
     <script src="boxSpin.js"></script>  
     <script src="lookingAtBox.js"></script>
     <script src="notLookingAtBox.js"></script>
     <script src="clickOnBox.js"></script>
+    <script src="fire.js"></script>
   </head>
   <body>
     
@@ -33,6 +37,13 @@
                   geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
                   material="color: red; shader: flat">
         </a-entity>
+         <a-entity fire id="torpedo"
+                  geometry="primitive:sphere; radius: 0.5"
+                  material="color: white"
+                  visible="false"
+                  position="0 0 -1">
+        </a-entity>
+
         <a-entity raycaster 
                   objects: .clickable>
         </a-entity>
