@@ -23,7 +23,18 @@ AFRAME.registerComponent('fire', {
      let pos = this.el.getAttribute('position')
      let torpedoDx = this.getDx(pos)
      if (torpedoDx > this.data.boxDistance + TORPEDO_MARGIN) {
-       this.el.setAttribute('visible', false)
+       //this.el.setAttribute('visible', false)
+       // collider doesn't work...
+       // emit the collider here ig
+       //this.emit("collide")
+       let box = document.getElementById('box');
+       let position = box.getAttribute('position');
+       position.x = Math.random() * 10 * ((Math.random() < 0.5) ? -1 : 1);
+       position.y = Math.random() * 9 + 1;  // Minimum y-value is 1 so it's above ground
+       position.z = -(Math.random() * 8 + 2);
+       box.setAttribute('position', position);
+       this.el.setAttribute('visible', false);
+       
      } else {
        pos.z += -timeDelta * TORPEDO_SPEED / 1000.0;
        this.el.setAttribute('position', pos)
