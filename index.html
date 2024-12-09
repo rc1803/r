@@ -7,8 +7,7 @@
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-aabb-collider-component/dist/aframe-aabb-collider-component.min.js"></script>
-  <script src="collide.js"></script>
+    <script src="collide.js"></script>
 
     <script src="constants.js"></script>  
     <script src="boxSpin.js"></script>  
@@ -22,7 +21,7 @@
     <!-- Main scene definition -->
     <a-scene id="scene">
       <a-entity environment="preset:starry"></a-entity>
-      <a-entity box-spin not-looking-at-box looking-at-box click-on-box id="box" 
+      <a-entity box-spin not-looking-at-box looking-at-box click-on-box clickable detect-collide id="box" 
                 geometry="primitive:box"
                 position="0 3 -5"
                 material="color:blue; src:https://cdn.glitch.global/ada329b6-9865-48b5-b069-a032cffa0b45/thumbnails%2FbrickPattern.jpg?1733504499938">
@@ -37,7 +36,7 @@
                   geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
                   material="color: red; shader: flat">
         </a-entity>
-         <a-entity fire id="torpedo"
+         <a-entity fire aabb-collider="objects: .detect-collide" collide id="torpedo"
                   geometry="primitive:sphere; radius: 0.5"
                   material="color: white"
                   visible="false"
