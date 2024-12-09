@@ -12,9 +12,9 @@ AFRAME.registerComponent('fire', {
 
  fire: function(event) {
    if (!this.el.getAttribute('visible')) {
-     this.data.boxDistance = this.getDx(event.detail.boxPosition);
      this.el.setAttribute('visible', true);
      this.el.setAttribute('position', {x: 0, y: 0, z: -1});
+     this.data.boxDistance = this.getDx(event.detail.boxPosition);
    }
  },
 
